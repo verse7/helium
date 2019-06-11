@@ -7,6 +7,7 @@
       </div>
       <div class="col-md-6 mt-4 bg-white shadow-sm rounded border-top">
         <form id="registerForm" method="post" @submit.prevent="register">
+          <input-hidden :value="csrfToken" name="_token"/>
           <div class="form-row pb-2 pt-3 pr-2 pl-2">
             <div class="col pb-2 input-group">
               <div class="input-group-prepend">
@@ -80,37 +81,42 @@ export default {
       parishes: ["Kingston","St. Andrew","St. Catherine","Trelawny","St. Ann<","PortLand","St. Mary",
       "St. Thomas","Clarendon","St. Elizabeth","St. James","Manchester","Hanover","Westmoreland"],
       error: false,
-      message: ""
+      message: "",
+      csrfToken: null
     }
   },
-  methods: {
+  created() {
+    this.csrfToken = document.querySelector('meta[name="csrf-token"]').content
+  },
+methods: {
     register: function () {
       let self = this;
       let regForm = document.getElementById("registerForm");
       let regInfo = new FormData(regForm);
+      let token = self.csrfToken;
 
       fetch("/api/user", {
         method: "POST",
         body: regInfo,
         headers: {
-          "X-CSRFToken": token,
+          "X-CSRFToken": token
         },
         credentials: "same-origin"
       })
       .then( resp => resp.json())
       .then( respJson => {
-        console.log(respJson);
-        if(respJson.hasOwnProperty("error")){
+        // console.log(respJson);
+        if (respJson.hasOwnProperty("error")) {
           self.error = true;
           self.message = respJson.error;
         }
         else{
-          router.push({name: "login", params: {notifs: respJson.message, success: true}});
+          // router.push({name: "login", params: {notifs: respJson.message, success: true}});
         }
       })
-      .catch( error => {
-        console.log(error);
-      })
+      // .catch( error => {
+        // console.log(error);
+      // })
     }
   }
 }
