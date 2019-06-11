@@ -1,6 +1,6 @@
 <template>
   <div class="side-space">
-      <nav class="navbar navbar-expand-md">
+      <nav class="navbar navbar-expand-md fixed-top bg-white">
           <span class="navbar-brand">
               <font-awesome-icon icon="clipboard-list" class="d-inline-block"></font-awesome-icon>
               Community Notice Board
