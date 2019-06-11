@@ -63,21 +63,22 @@
 
 
 /* Start of Login and Register background image ----> */
-.bg {
-background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1354 654' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 312L158.5 346L317 382L457.375 410.5L597.75 440L878.5 498L1159.25 553.5L1299.62 580L1440 608.5V654H0V312Z' fill='%23003249'/%3E%3Cpath d='M940 216L1440 26V612L434.5 408.5L940 216Z' fill='%23FF9966'/%3E%3Cpath d='M0 0L937 221L437 408L0 313V0Z' fill='%23E9724C'/%3E%3C/svg%3E");
+body {
+background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1440 900' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M940 522L1440 382V838L434.5 653.5L940 522Z' fill='%23FF9966'/%3E%3Cpath d='M0 326L884 537L437 654L0 559V326Z' fill='%23E9724C'/%3E%3Cpath d='M0 557L158.5 581L317 607L457.375 630.5L597.75 653L738.125 677L878.5 699L1018.88 719.25L1159.25 738.5L1299.62 756L1440 774.5V900H0V557Z' fill='%23003249'/%3E%3Cpath d='M0 0H1440V385.625L1187.75 458.25L882.5 535.5L467 446L0 326V0Z' fill='white'/%3E%3C/svg%3E%0A");
 background-repeat: no-repeat;
 -webkit-background-size: cover;
 -moz-background-size: cover;
 -o-background-size: cover;
 background-size: cover;
-background-position: center bottom;
+background-position: center center;
+background-attachment: fixed;
 }
 
 .box {
-position: absolute;
+/* position: absolute;
 top: 0;
 bottom: 0;
-width: 100%;
+width: 100%; */
 z-index: -1000;
 }
 /* <--- End of background image */
@@ -96,6 +97,7 @@ background-color: #ffffff;
 .format-form {
   margin-left: 15%;
   margin-right: 15%;
+  margin-top: 10%;
 }
 .btn-color {
   background-color: #FF9966;
@@ -103,7 +105,7 @@ background-color: #ffffff;
 }
 
 @media screen and (max-device-width: 480px) {
-h5 { font-size: 1.0em;
+h4 { font-size: 1.0em;
 }
 
 label {
@@ -117,7 +119,15 @@ font-size: 0.9em;
 .shadow-sm {
     box-shadow: 0 5px 7px rgba(0, 0, 0, 0.267), 0 5px 7px rgba(0, 0, 0, 0.342);
 }
+
+.format-form {
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-top: 25%;
+}
+}
 /* <----- End of Login Page CSS */
+
 
 
 /* Start of Register Page CSS */
@@ -128,5 +138,3 @@ font-size: 0.9em;
   }
 }
 /* <----- End of Register Page CSS */
-
-}

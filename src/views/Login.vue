@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="format-form">
-      <h5 class="font-weight-bold ml-3 mt-3">LOGIN</h5>
+      <h4 class="font-weight-bold ml-3">LOGIN</h4>
       <div class="alert alert-danger container mt-5" role="alert" v-if='error'>
         {{ message }}
       </div>
@@ -10,17 +10,21 @@
           {{ notifs }}
         </div>
       </div>
-      <div class="col-md-5 mt-4 bg-white shadow-sm rounded">
+      <div class="col-md-6 mt-4 bg-white shadow-sm rounded border-top">
         <form id="loginForm" method="post" @submit.prevent="login">
-          <div class="form-group pb-2 pt-3">
-            <label for="email1" class="font-weight-bold">Email</label>
-            <input type="email" class="form-control rounded" id="email" aria-describedby="emailHelp" placeholder="johndoe@test.com">
+          <div class="form-group input-group pt-4 pb-3 pr-2 pl-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text"><font-awesome-icon icon="envelope"></font-awesome-icon></div>
+            </div>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email Address" required>
           </div>
-          <div class="form-group pb-4">
-            <label for="password" class="font-weight-bold">Password</label>
-            <input type="password" class="form-control rounded" id="password" placeholder="Password">
+          <div class="form-group input-group pb-4 pr-2 pl-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text"><font-awesome-icon icon="unlock-alt"></font-awesome-icon></div>
+            </div>
+            <input type="password" class="form-control" id="password" placeholder="Password" required>
           </div>
-          <div class="form-group pb-4">
+          <div class="form-group pb-4 pr-2 pl-2">
             <input type="submit" value="Login" class="btn btn-block btn-color rounded-pill font-weight-bold">
           </div>
         </form>
