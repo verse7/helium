@@ -12,6 +12,7 @@
       </div>
       <div class="col-md-6 mt-4 bg-white shadow-sm rounded border-top">
         <form id="loginForm" method="post" @submit.prevent="login">
+          <input-hidden :value="csrfToken" name="_token"/>
           <div class="form-group input-group pt-4 pb-3 pr-2 pl-2">
             <div class="input-group-prepend">
               <div class="input-group-text"><font-awesome-icon icon="envelope"></font-awesome-icon></div>
@@ -30,12 +31,59 @@
         </form>
       </div>
     </div>
-    <!-- <div class="bg box"></div> -->
-    <!-- <svg width="1354" height="654" viewBox="0 0 1354 654" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 312L158.5 346L317 382L457.375 410.5L597.75 440L878.5 498L1159.25 553.5L1299.62 580L1440 608.5V654H0V312Z" fill="#003249"/>
-<path d="M940 216L1440 26V612L434.5 408.5L940 216Z" fill="#FF9966"/>
-<path d="M0 0L937 221L437 408L0 313V0Z" fill="#E9724C"/>
-</svg> -->
   </div>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      error: false,
+      message: "",
+      csrfToken: null
+    }
+  },
+  props: ["notifs", "success"],
+  created() {
+    this.csrfToken = document.querySelector('meta[name="csrf-token"]').content
+  },
+  methods: {
+    login() {
+      let self = this;
+      let logForm = document.getElementById("loginForm");
+      let logInfo = new FormData(logForm);
+      let token = self.csrfToken;
+
+      fetch("/api/users/login", {
+        method: "POST",
+        body: logInfo,
+        headers: {
+          "X-CSRFToken": token,
+        },
+        credentials: "same-origin"
+      })
+      .then( resp => resp.json())
+      .then( respJson => {
+        // console.log(respJson);
+        if (respJson.hasOwnProperty("error")) {
+          self.error = true;
+          self.message = respJson.error;
+        }
+        else{
+          let jwt_token = respJson.token;
+          let id = respJson.user_id;
+
+          /*Stores the jwt locally to be accessed later*/
+          localStorage.setItem('token', jwt_token);
+          localStorage.setItem('current_user', id);
+
+          // router.push({name: "home", params: {message: respJson.message, success: true}});
+        }
+      })
+      // .catch( error => {
+      //   console.log(error);
+      // })
+    }
+  }
+};
+</script>
