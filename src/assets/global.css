@@ -1,0 +1,122 @@
+/* Start of App.vue CSS ----> */
+#app {
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+}
+/* <----- End of App.vue CSS */
+
+
+
+/* Start of NavBar CSS ----> */
+
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+#nav a {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: #003249;
+}
+
+#nav span {
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  color: #003249;
+}
+
+#nav a.router-link-exact-active {
+  color: #e9724c;
+}
+  /* Add space left and righ of navbar */
+.side-space {
+    margin: 0 20px 0 20px;
+}
+
+  /* .custom-toggler.navbar-toggler {
+      border-color: #003249;
+  } */
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 50, 73, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+@media screen and (max-device-width: 480px) {
+#nav span { font-size: 1.0em;
+}
+
+.custom-toggler .navbar-toggler-icon {
+    height: 1.1em;
+    border: none;
+}
+
+#nav a {
+    font-size: 0.9em;
+}
+
+  /* #nav a.router-link-exact-active {
+    color: #dcdcdc;
+  } */
+}
+
+/* <----- End of NavBar CSS */
+
+
+
+/* Start of Login and Register background image ----> */
+.bg {
+background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1354 654' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 312L158.5 346L317 382L457.375 410.5L597.75 440L878.5 498L1159.25 553.5L1299.62 580L1440 608.5V654H0V312Z' fill='%23003249'/%3E%3Cpath d='M940 216L1440 26V612L434.5 408.5L940 216Z' fill='%23FF9966'/%3E%3Cpath d='M0 0L937 221L437 408L0 313V0Z' fill='%23E9724C'/%3E%3C/svg%3E");
+background-repeat: no-repeat;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+background-position: center bottom;
+}
+
+.box {
+position: absolute;
+top: 0;
+bottom: 0;
+width: 100%;
+z-index: -1000;
+}
+/* <--- End of background image */
+
+
+
+
+/* Login and Register form card */
+.bg-white {
+background-color: #ffffff;
+}
+
+
+
+/* Start of Login Page CSS -----> */
+.format-form {
+  margin-left: 15%;
+  margin-right: 15%;
+}
+.btn-color {
+  background-color: #FF9966;
+  color: #ffffff;
+}
+
+@media screen and (max-device-width: 480px) {
+h5 { font-size: 1.0em;
+}
+
+label {
+font-size: 0.9em;
+}
+
+input[type="submit"] {
+font-size: 0.9em;
+}
+
+.shadow-sm {
+    box-shadow: 0 5px 7px rgba(0, 0, 0, 0.267), 0 5px 7px rgba(0, 0, 0, 0.342);
+}
+/* <----- End of Login Page CSS */
+
+}

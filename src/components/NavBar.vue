@@ -36,35 +36,3 @@ export default {
     name: "NavBar"
 };
 </script>
-
-<style>
-@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
-
-#nav a {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  color: #003249;
-}
-
-#nav span {
-  font-family: 'Poppins', sans-serif;
-  font-weight: bold;
-  color: #003249;
-}
-
-#nav a.router-link-exact-active {
-  color: #e9724c;
-}
-
-.side-space {
-    margin: 0 20px 0 20px;
-}
-
-/* .custom-toggler.navbar-toggler {
-    border-color: #003249;
-} */
-.custom-toggler .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 50, 73, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-}
-
-</style>

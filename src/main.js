@@ -15,6 +15,9 @@ Vue.component("font-awesome-icon", FontAwesomeIcon);
 
 Vue.config.productionTip = false;
 
+// Importing the global css file
+import "@/assets/global.css"
+
 new Vue({
   router,
   store,
