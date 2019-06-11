@@ -119,4 +119,14 @@ font-size: 0.9em;
 }
 /* <----- End of Login Page CSS */
 
+
+/* Start of Register Page CSS */
+@media screen and (max-device-width: 480px) {
+  .input-group-text {
+    background-color: #e9ecef !important;
+    color: #495057 !important;
+  }
+}
+/* <----- End of Register Page CSS */
+
 }
