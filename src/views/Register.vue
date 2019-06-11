@@ -2,13 +2,8 @@
   <div>
     <div class="format-form">
       <h4 class="font-weight-bold ml-3">Create Account</h4>
-      <div class="alert alert-danger container mt-2" role="alert" v-if='error'>
+      <div class="alert alert-danger container mt-2" role="alert" v-if="error">
         {{ message }}
-      </div>
-      <div v-else>
-        <div class="alert alert-success container mt-2" role="alert" v-if='success'>
-          {{ notifs }}
-        </div>
       </div>
       <div class="col-md-6 mt-4 bg-white shadow-sm rounded border-top">
         <form id="registerForm" method="post" @submit.prevent="register">
@@ -83,7 +78,39 @@ export default {
   data() {
     return {
       parishes: ["Kingston","St. Andrew","St. Catherine","Trelawny","St. Ann<","PortLand","St. Mary",
-      "St. Thomas","Clarendon","St. Elizabeth","St. James","Manchester","Hanover","Westmoreland"]
+      "St. Thomas","Clarendon","St. Elizabeth","St. James","Manchester","Hanover","Westmoreland"],
+      error: false,
+      message: ""
+    }
+  },
+  methods: {
+    register: function () {
+      let self = this;
+      let regForm = document.getElementById("registerForm");
+      let regInfo = new FormData(regForm);
+
+      fetch("/api/user", {
+        method: "POST",
+        body: regInfo,
+        headers: {
+          "X-CSRFToken": token,
+        },
+        credentials: "same-origin"
+      })
+      .then( resp => resp.json())
+      .then( respJson => {
+        console.log(respJson);
+        if(respJson.hasOwnProperty("error")){
+          self.error = true;
+          self.message = respJson.error;
+        }
+        else{
+          router.push({name: "login", params: {notifs: respJson.message, success: true}});
+        }
+      })
+      .catch( error => {
+        console.log(error);
+      })
     }
   }
 }
