@@ -75,6 +75,7 @@
 </template>
 
 <script>
+import router from "../router";
 export default {
   data() {
     return {
@@ -111,7 +112,7 @@ methods: {
           self.message = respJson.error;
         }
         else{
-          // router.push({name: "login", params: {notifs: respJson.message, success: true}});
+          router.push({name: "login", params: {notifs: respJson.message, success: true}});
         }
       })
       // .catch( error => {

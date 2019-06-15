@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import router from "../router";
 export default {
   data() {
     return {
@@ -77,7 +78,7 @@ export default {
           localStorage.setItem('token', jwt_token);
           localStorage.setItem('current_user', id);
 
-          // router.push({name: "home", params: {message: respJson.message, success: true}});
+          router.push({name: "home", params: {message: respJson.message, success: true}});
         }
       })
       // .catch( error => {
